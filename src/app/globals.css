@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #030712;
+  --foreground: #f8fafc;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #030712;
+  color: #f8fafc;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #030712;
+  color: #f8fafc;
+  overflow-x: hidden;
+  font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
+}
+
+/* Custom Cinematic Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #38bdf8;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.force-reduced-motion *,
+.force-reduced-motion ::before,
+.force-reduced-motion ::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Subtle Starfield Ambient Grid */
+.bg-starfield {
+  background-image: radial-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Glassmorphism Surface Utilities */
+.glass-panel {
+  background: rgba(11, 21, 40, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Continuous Atmospheric Water Vapor Animations */
+@keyframes vaporRiseA {
+  0% { transform: translateY(0) scale(1); opacity: 0.4; }
+  35% { transform: translateY(-70px) scale(1.6); opacity: 0.75; }
+  70% { transform: translateY(-140px) scale(2.2); opacity: 0.4; }
+  100% { transform: translateY(-220px) scale(2.8); opacity: 0; }
+}
+
+@keyframes vaporRiseB {
+  0% { transform: translateY(0) scale(0.9); opacity: 0.5; }
+  40% { transform: translateY(-80px) scale(1.8); opacity: 0.8; }
+  75% { transform: translateY(-160px) scale(2.4); opacity: 0.35; }
+  100% { transform: translateY(-240px) scale(3.2); opacity: 0; }
+}
+
+@keyframes vaporRiseC {
+  0% { transform: translateY(0) scale(1); opacity: 0.35; }
+  30% { transform: translateY(-50px) scale(1.4); opacity: 0.65; }
+  65% { transform: translateY(-110px) scale(2.0); opacity: 0.3; }
+  100% { transform: translateY(-180px) scale(2.6); opacity: 0; }
+}
+
+.animate-vapor-a {
+  animation: vaporRiseA 5.5s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
+.animate-vapor-b {
+  animation: vaporRiseB 7s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
+.animate-vapor-c {
+  animation: vaporRiseC 4.8s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
